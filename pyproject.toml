@@ -1,17 +1,15 @@
 [project]
-name = "reproducible-research"
+name = "jasael-howtoanalysequantiativesoundscapedata"
 version = "0.1.0"
 description = "Add your description here"
-authors = [
-    { name = "Andrew Mitchell", email = "a.j.mitchell@ucl.ac.uk" }
-]
 readme = "README.md"
-requires-python = ">= 3.12"
-license = { text = "BSD-3-Clause" }
+requires-python = ">=3.9"
 dependencies = [
     "ipykernel>=6.29.5",
     "jupyter>=1.1.1",
-    "pandas>=2.2.3",
-    "scipy>=1.14.1",
-    "seaborn>=0.13.2",
+    "matplotlib==3.5.3",
+    "numpy>=1.21,<2",
+    "pandas<2",
+    "pyyaml>=6.0.2",
+    "soundscapy==0.4.4",
 ]

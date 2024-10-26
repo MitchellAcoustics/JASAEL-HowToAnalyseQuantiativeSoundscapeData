@@ -10,6 +10,8 @@ manuscript:
 
 format:
   html:
+    toc: true
+    code-fold: true
     embed-resources: true
     self-contained-math: true
     output-file: paper.html
@@ -17,8 +19,17 @@ format:
       hypothesis: true
   docx: default
   jats: default
-  # pdf: default
-  typst: default
+  # typst: default
+  elsevier-pdf:
+    output-file: 'manuscript.pdf'
+    hyperrefoptions: 
+      - "citecolor=black"
+    echo: false
+    journal:
+      name: JASA-EL
+      formatting: preprint
+      model: 3p
+      cite-style: authoryear
 
   # (other formats)
   # pdf: default
