@@ -22,7 +22,8 @@
         "GitHub.copilot",
         // "eamodio.gitlens",
         "ms-vscode-remote.remote-containers",
-        "quarto.quarto"
+        "quarto.quarto",
+        "ms-vscode.live-server"
       ],
       "settings": {
         "r.rpath.linux": "/usr/local/bin/R",

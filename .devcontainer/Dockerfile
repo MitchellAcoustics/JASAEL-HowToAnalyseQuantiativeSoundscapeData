@@ -36,13 +36,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # RUN perl ./install-tl --no-interaction
 # RUN export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
 # RUN tlmgr init-usertree
+ENV TINYTEX_INSTALLER=TinyTeX
 RUN wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
 
 # ENV PATH="/usr/local/texlive/2024/bin/x86_64-linux:${PATH}"
 ENV PATH="/root/bin:${PATH}"
 RUN tlmgr init-usertree
 RUN tlmgr update --self
-RUN tlmgr install caption
+# RUN tlmgr install caption
 
 # Install Quarto
 RUN ARCH=$(dpkg --print-architecture) && \

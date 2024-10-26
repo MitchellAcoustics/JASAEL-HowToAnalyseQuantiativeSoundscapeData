@@ -10,6 +10,7 @@ manuscript:
 
 format:
   html:
+    clean: true
     toc: true
     code-fold: true
     embed-resources: true
@@ -17,11 +18,14 @@ format:
     output-file: paper.html
     comments:
       hypothesis: true
-  docx: default
-  jats: default
+  # docx: default
+  # jats: default
   # typst: default
   elsevier-pdf:
-    output-file: 'manuscript.pdf'
+    latex-clean: true
+    latex-output-dir: drafts/_tex
+    keep-tex: false
+    output-file: manuscript.pdf
     hyperrefoptions: 
       - "citecolor=black"
     echo: false
