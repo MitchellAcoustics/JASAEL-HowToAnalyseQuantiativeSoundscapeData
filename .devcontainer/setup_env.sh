@@ -82,29 +82,29 @@ log "Python environment setup complete."
 log "Setting up R environment..."
 export R_LIBS_USER="/opt/r_env"
 
-setup_r_env() {
-    if [ -f "renv.lock" ]; then
-        log "renv.lock found. Restoring R environment."
-        if ! R --quiet -e "renv::restore()"; then
-            log "Error: Failed to restore R environment with renv."
-            return 1
-        fi
-    else
-        log "No renv.lock found. Initializing new renv project..."
-        R --quiet -e "renv::init()"
-        R --quiet -e "renv::install(c('pak'))"
-        log "Install other R packages."
-        R --quiet -e "renv::install(c('yaml', 'languageserver', 'knitr', 'rmarkdown'))"
-        R --quiet -e "renv::snapshot()"
-    fi
+# setup_r_env() {
+#     if [ -f "renv.lock" ]; then
+#         log "renv.lock found. Restoring R environment."
+#         if ! R --quiet -e "renv::restore()"; then
+#             log "Error: Failed to restore R environment with renv."
+#             return 1
+#         fi
+#     else
+#         log "No renv.lock found. Initializing new renv project..."
+#         R --quiet -e "renv::init()"
+#         R --quiet -e "renv::install(c('pak'))"
+#         log "Install other R packages."
+#         R --quiet -e "renv::install(c('yaml', 'languageserver', 'knitr', 'rmarkdown'))"
+#         R --quiet -e "renv::snapshot()"
+#     fi
 
-    return 0
-}
+#     return 0
+# }
 
-if ! setup_r_env; then
-    log "R environment setup failed."
-    exit 1
-fi
+# if ! setup_r_env; then
+#     log "R environment setup failed."
+#     exit 1
+# fi
 
 log "R environment setup complete."
 

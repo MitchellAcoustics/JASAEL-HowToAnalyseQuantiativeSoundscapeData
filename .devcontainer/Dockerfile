@@ -82,7 +82,7 @@ ENV PATH="/usr/local/bin:/root/.rye/shims:${PATH}" \
 RUN uv python install ${PYTHON_VERSION}
 
 # Install renv
-RUN R --quiet -e "install.packages('renv', repos = 'https://cloud.r-project.org/')"
+# RUN R --quiet -e "install.packages('renv', repos = 'https://cloud.r-project.org/')"
 
 # Configure renv
 # approach one https://rstudio.github.io/renv/articles/docker.html
