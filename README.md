@@ -1,62 +1,11 @@
-# Research Environment Setup
+# How To Analyse and Represent Quantitative Soundscape Data - JASA Express Letters
 
-This repository contains a devcontainer configuration for a reproducible research environment. It's designed to support projects that use Python, R, Quarto, LaTeX, and Typst, with a focus on reproducibility and ease of use.
+This repository contains the code and data for the paper "How To Analyse and Represent Quantitative Soundscape Data" published in JASA Express Letters. The paper is available at [https://doi.org/10.1121/10.0009794](https://doi.org/10.1121/10.0009794).
 
-## Key Features
+## Abstract
+This study first examines the methods presented in ISO 12913 for analysing and representing soundscape data by applying them to a large existing database of soundscape assessments. The key issue identified is the inability of the standard methods to summarise the soundscape of locations and groups. The presented solution inherently considers the variety of responses within a group and provides an open-source visualisation tool to facilitate a nuanced approach to soundscape assessment and design. Several demonstrations of the soundscape distribution of urban spaces are presented, along with proposals for how this approach can be used and developed.
 
-1. **Reproducibility**: We use specific versions of R and Python to ensure consistency across different machines.
-2. **Multi-language Support**: The environment supports both Python and R, along with tools for document preparation (Quarto, LaTeX, Typst).
-3. **Version Control**: Git is pre-configured, and we mount the user's `.gitconfig` for personalized settings.
-4. **Package Management**: 
-   - For Python: We use UV for fast package installation and Rye for project management.
-   - For R: We use renv for reproducible package management.
-5. **Development Tools**: VSCode is configured with extensions for Python, R, Quarto, LaTeX, and Typst.
-6. **Security**: The container runs as a non-root user for improved security.
+## Rendered paper
 
-## Key Choices and Rationale
+The paper rendered directly from this repository can be found in the [paper](paper) folder.
 
-1. **Base Image**: We use `rocker/r-ver` as our base image. This provides a minimal R installation, which we then build upon.
-
-2. **Python and R Versions**: 
-   - We pin specific versions (Python 3.11 and R 4.3.1 by default) for reproducibility.
-   - These are set as build arguments, allowing easy updates.
-
-3. **Package Managers**:
-   - UV: Chosen for its speed and efficiency in Python package installation.
-   - Rye: Used for Python project management, providing a consistent way to manage Python versions and dependencies.
-   - renv: Used for R to create reproducible environments.
-
-4. **Document Preparation**:
-   - Quarto: A powerful tool for creating dynamic documents that can include both R and Python code.
-   - LaTeX: Essential for many academic documents.
-   - Typst: A modern alternative to LaTeX, offering easier syntax and faster compilation.
-
-5. **VSCode Extensions**: We include extensions for all our key languages and tools, enhancing the development experience.
-
-6. **Volume Mounts**:
-   - We use Docker volumes for Python and R package caches to improve performance across container rebuilds.
-   - The user's `.gitconfig` is mounted to personalize Git settings.
-
-7. **Environment Variables**: We set `PYTHONPATH` and `R_LIBS_USER` to ensure correct library paths.
-
-## Usage
-
-1. Ensure you have Docker and VSCode with the Remote - Containers extension installed.
-2. Clone this repository.
-3. Open the repository in VSCode.
-4. When prompted, click "Reopen in Container".
-5. Wait for the container to build and start. This may take several minutes the first time.
-
-## Customization
-
-- You can modify the Python and R versions by changing the build arguments in the Dockerfile.
-- Additional system packages can be added to the Dockerfile.
-- VSCode settings and extensions can be modified in the `devcontainer.json` file.
-
-## Contributing
-
-Contributions to improve this setup are welcome! Please submit a pull request or open an issue to discuss proposed changes.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.

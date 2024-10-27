@@ -1,6 +1,6 @@
 project:
   type: default
-  output-dir: drafts
+  output-dir: paper
 
 # manuscript:
 #   article: paper.qmd
@@ -15,7 +15,7 @@ format:
     code-fold: true
     embed-resources: true
     self-contained-math: true
-    output-file: manuscript.html
+    output-file: paper.html
     comments:
       hypothesis: true
   # docx: default
@@ -23,9 +23,9 @@ format:
   # typst: default
   elsevier-pdf:
     latex-clean: true
-    latex-output-dir: drafts/_tex
+    latex-output-dir: paper/_tex
     keep-tex: false
-    output-file: manuscript.pdf
+    output-file: paper.pdf
     hyperrefoptions: 
       - "citecolor=black"
     echo: false
