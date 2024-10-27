@@ -1,9 +1,9 @@
 project:
-  type: manuscript
+  type: default
   output-dir: drafts
 
-manuscript:
-  article: paper.qmd
+# manuscript:
+#   article: paper.qmd
   # notebooks:
   #   - notebook1.ipynb
   #   - notebook2.ipynb
@@ -15,7 +15,7 @@ format:
     code-fold: true
     embed-resources: true
     self-contained-math: true
-    output-file: paper.html
+    output-file: manuscript.html
     comments:
       hypothesis: true
   # docx: default

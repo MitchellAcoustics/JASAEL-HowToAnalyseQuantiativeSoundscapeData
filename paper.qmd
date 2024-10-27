@@ -101,7 +101,7 @@ where the PAs are arranged around the circumplex as shown in @fig-radar. The $\c
 
 > According to the two-dimensional model, vibrant soundscapes are both pleasant and eventful, chaotic soundscapes are both eventful and unpleasant, monotonous soundscapes are both unpleasant and uneventful, and finally calm soundscapes are both uneventful and pleasant.
 
-<!-- ![Example of representations of two soundscape assessments. Left: Radar plot of two example perceptual attribute (PA) ratings on the Likert scales (1 to 5). Right: Scatter plot of the same assessments on the soundscape circumplex, transformed according to ISO 12913 Part 3.](figures/Figure1.jpg){#fig-radar}- -->
+![Example of representations of two soundscape assessments. Left: Radar plot of two example perceptual attribute (PA) ratings on the Likert scales (1 to 5). Right: Scatter plot of the same assessments on the soundscape circumplex, transformed according to ISO 12913 Part 3.](figures/Figure1.jpg){#fig-radar}
 
 ## Summarising the soundscape assessment of a location
 
@@ -129,7 +129,6 @@ Given the identified issues with the recommended methods for statistical analysi
 
 We therefore present a visualisation in @fig-circ of the soundscape assessments of several urban spaces included in the ISD [@Mitchell2021International] which reflects these goals. The specific locations selected from the ISD are chosen for demonstration only and these methods can be applied to any location. Rather than attempting to represent a single individual's soundscape or of describing a location's soundscape as a single average assessment (as in @Mitchell2021Investigating), this representation shows the whole range of perception of the users of the space. First, rather than calculating the median response to each PA in the location, then calculating the circumplex coordinates, the coordinates for each individual response are calculated. This results in a vector of ISOPleasant, ISOEventful values which are continuous variables from -1 to +1 and can be analysed statistically by calculating summary statistics (mean, standard deviation, quantiles, etc.) and through the use of regression modelling, which can often be simpler and more familiar than the recommended methods of analysing ordinal data. This also enables each individual's response to be placed within the pleasant-eventful space. All of the responses for a location can then be plotted, giving an overall scatter plot for a location, as demonstrated in @fig-circ-1.
 
-
 ```{python}
 # | warning: false
 # | label: fig-circ
@@ -147,7 +146,7 @@ import pandas as pd
 
 ssid = soundscapy.isd.load_isd_dataset()
 ssid = ssid.isd.filter_lockdown();  # fmt: skip
-ssid, excl = ssid.sspy.validate_dataset(allow_na=False);  # fmt: skip
+ssid, excl = ssid.sspy.validate_dataset(allow_na=False, verbose=0);  # fmt: skip
 
 ssid.isd.filter_location_ids(["PancrasLock"]).sspy.jointplot(
     title="(a) Example distribution of the soundscape perception of an urban park",
