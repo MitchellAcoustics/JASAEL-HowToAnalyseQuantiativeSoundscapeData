@@ -40,7 +40,7 @@ coverage.xml
 cover/
 
 # Rye
-.python-version
+# .python-version
 .venv
 
 # Jupyter Notebook
