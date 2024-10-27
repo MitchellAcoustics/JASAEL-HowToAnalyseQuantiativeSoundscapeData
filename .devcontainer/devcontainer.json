@@ -1,11 +1,19 @@
 {
   "name": "Research Environment",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      "PYTHON_VERSION": "3.12",
-      "R_VERSION": "4.4.1"
-    }
+  "image": "mitchellacoustics/repro-tinytex:latest",
+  "remoteEnv": {
+    "PYTHON_VERSION": "3.9",
+    "SETUP_UV": "true",
+    "SETUP_RENV": "false",
+    // Set environment variables for R and Python
+    "PYTHONPATH": "/workspace/src/python:${containerEnv:PYTHONPATH}",
+    "R_LIBS_USER": "/opt/r_env",
+    "RENV_PATHS_ROOT": "/opt/r_env",
+    "RENV_PATHS_LIBRARY": "/opt/r_env/library",
+    "UV_HOME": "/opt/python_env",
+    "UV_LINK_MODE": "copy",
+    "VIRTUAL_ENV": "/opt/.venv",
+    "UV_PROJECT_ENVIRONMENT": "/opt/.venv"
   },
   "customizations": {
     "vscode": {
@@ -20,10 +28,9 @@
         "ms-toolsai.jupyter-renderers",
         "ms-azuretools.vscode-docker",
         "GitHub.copilot",
-        // "eamodio.gitlens",
+        "eamodio.gitlens",
         "ms-vscode-remote.remote-containers",
-        "quarto.quarto",
-        "ms-vscode.live-server"
+        "quarto.quarto"
       ],
       "settings": {
         "r.rpath.linux": "/usr/local/bin/R",
@@ -33,7 +40,7 @@
         "terminal.integrated.defaultProfile.linux": "zsh",
         // ruff settings
         "[python]": {
-          "defaultInterpreterPath": "/workspace/.venv/bin/python",
+          "defaultInterpreterPath": "$VIRTUAL_ENV/bin/python",
           "editor.formatOnSave": true,
           "editor.codeActionsOnSave": {
             "source.fixAll": "explicit",
@@ -51,17 +58,14 @@
   },
   "features": {
     "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {},
-    "ghcr.io/rocker-org/devcontainer-features/renv-cache:0": {}
+    "ghcr.io/rocker-org/devcontainer-features/renv-cache:0": {},
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+      "packages": "yaml, languageserver, rmarkdown, knitr"
+    },
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {}
   },
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   ],
-  "remoteEnv": {
-    "PYTHONPATH": "/workspace/src/python:${containerEnv:PYTHONPATH}",
-    "R_LIBS_USER": "/opt/r_env",
-    "RENV_PATHS_ROOT": "/opt/r_env",
-    "RENV_PATHS_LIBRARY": "/opt/r_env/library",
-    "UV_HOME": "/opt/python_env"
-  },
-  "postCreateCommand": "bash .devcontainer/setup_env.sh && bash .devcontainer/test_devcontainer_setup.sh"
+  "postCreateCommand": "bash .devcontainer/setup_env.sh --python_version $PYTHON_VERSION --setup_uv $SETUP_UV --setup_renv $SETUP_RENV bash .devcontainer/test_devcontainer_setup.sh --python_version $PYTHON_VERSION --setup_uv $SETUP_UV --setup_renv $SETUP_RENV"
 }
