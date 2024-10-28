@@ -10,7 +10,7 @@ project:
 
 format:
   html:
-    clean: true
+    # clean: true
     toc: true
     code-fold: true
     embed-resources: true
@@ -22,7 +22,7 @@ format:
   # jats: default
   # typst: default
   elsevier-pdf:
-    latex-clean: true
+    # latex-clean: true
     latex-output-dir: paper/_tex
     keep-tex: false
     output-file: paper.pdf

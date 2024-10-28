@@ -35,20 +35,19 @@ keywords:
   - ISO12913
 date: "2022-03-16"
 bibliography: references.bib
-# format:
-#   html:
-#     toc: true
-#     code-fold: true
-#   elsevier-pdf:
-#     output-file: 'manuscript.pdf'
-#     hyperrefoptions: 
-#       - "citecolor=black"
-#     echo: false
-#     journal:
-#       name: JASA-EL
-#       formatting: preprint
-#       model: 3p
-#       cite-style: authoryear
+format:
+  html:
+    toc: true
+    code-fold: true
+  elsevier-pdf:
+    hyperrefoptions: 
+      - "citecolor=black"
+    echo: false
+    journal:
+      name: JASA-EL
+      formatting: preprint
+      model: 3p
+      cite-style: authoryear
   
 citation:
   type: article-journal
