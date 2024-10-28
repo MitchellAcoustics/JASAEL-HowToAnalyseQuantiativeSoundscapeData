@@ -39,5 +39,5 @@ format:
   # pdf: default
 
 execute:
-  freeze: true
+  freeze: auto
   keep-ipynb: true

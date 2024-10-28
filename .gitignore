@@ -127,7 +127,7 @@ $RECYCLE.BIN/
 # Quarto
 /.quarto/
 _site/
-_freeze/
+# _freeze/
 
 # LaTeX
 *.aux
