@@ -2,18 +2,18 @@ project:
   type: default
   output-dir: paper
 
-# manuscript:
-#   article: paper.qmd
-  # notebooks:
-  #   - notebook1.ipynb
-  #   - notebook2.ipynb
+manuscript:
+  article: paper.qmd
+  notebooks:
+    - notebook1.ipynb
+    - notebook2.ipynb
 
 format:
   html:
     # clean: true
     toc: true
     code-fold: true
-    embed-resources: true
+    # embed-resources: true
     self-contained-math: true
     output-file: paper.html
     comments:
